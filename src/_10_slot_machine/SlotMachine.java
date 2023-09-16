@@ -62,8 +62,25 @@ public class SlotMachine implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+spin();
+		if (label1Fruit == label2Fruit && label2Fruit == label3Fruit) {
+			if (new Random().nextBoolean()) {
+				spin();
+				JOptionPane.showMessageDialog(null, "The slot machine seems to land on a jackpot, but then spins again. Weird.");
+			}
+			else {
+			JOptionPane.showMessageDialog(null, "YOU WON!");
+			}
+		}			
+	}
+
+	
+	void spin() {
 		frame.remove(panel);
-		
+		panel.remove(label1);
+		panel.remove(label2);
+		panel.remove(label3);
+		panel.remove(button);
 		try {
 			setRandomFruit();
 			label1 = createLabelImage("slot" + randomFruit);
@@ -80,13 +97,13 @@ public class SlotMachine implements ActionListener {
 			o.printStackTrace();
 		
 	}
-	
-		if (label1Fruit == label2Fruit && label2Fruit == label3Fruit) {
-				JOptionPane.showMessageDialog(null, "YOU WON!");
-		}
+		panel.add(label1);
+		panel.add(label2);
+		panel.add(label3);
+		panel.add(button);
 		frame.add(panel);
 		frame.pack();
-}
+	}
 	
 	void setRandomFruit() {
 		int r = new Random().nextInt(3);
