@@ -11,6 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+//note: the gray is supposed to be a light, so you actually want the board to be all white.
+//I guess that makes it Lights On instead of Lights Out.
+
 /**
  * 
  * Lights Out is a puzzle game with a grid of lights that are either on (light
